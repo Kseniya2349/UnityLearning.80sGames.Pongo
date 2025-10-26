@@ -26,10 +26,11 @@ public class Ball : MonoBehaviour
         {
             _direction.y = -_direction.y;
         }
-        else
+        
+        if (transform.position.x < GameManager.GameField.MinX 
+            || transform.position.x > GameManager.GameField.MaxX)
         {
-            // Game over
-            Debug.Log(GameManager.Score.ToString());
+            GameManager.Restart();
         }
     }
 
