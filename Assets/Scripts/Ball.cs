@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public float speed = 5f;
+    public int initialSpeed = 5;
+    
+    public int speedBoostScore = 5;
     
     private float _radius;
 
@@ -19,6 +21,8 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var speed = (float)Math.Floor(GameManager.Score / (double)speedBoostScore) + initialSpeed;
+        
         transform.Translate(_direction * speed * Time.deltaTime);
 
         if ((transform.position.y < GameManager.GameField.MinY + _radius && _direction.y < 0) 
