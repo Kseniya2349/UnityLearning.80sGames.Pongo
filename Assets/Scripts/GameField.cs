@@ -10,7 +10,7 @@ public class GameField
         _bottomLeft = bottomLeft;
         _topRight = topRight;
     }
-    
+
     public float MinY => _bottomLeft.y;
     public float MaxY => _topRight.y;
     public float MinX => _bottomLeft.x;

@@ -4,13 +4,13 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public int initialSpeed = 5;
-    
+
     public int speedBoostScore = 5;
-    
+
     private float _radius;
 
     private Vector2 _direction;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,20 +21,20 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var speed = (float)Math.Floor(GameManager.Score / (double)speedBoostScore) + initialSpeed;
-        
+        var speed = (float)Math.Floor(GameManager.Instance.Score / (double)speedBoostScore) + initialSpeed;
+
         transform.Translate(_direction * speed * Time.deltaTime);
 
-        if ((transform.position.y < GameManager.GameField.MinY + _radius && _direction.y < 0) 
-            || (transform.position.y > GameManager.GameField.MaxY - _radius && _direction.y > 0))
+        if ((transform.position.y < GameManager.Instance.GameField.MinY + _radius && _direction.y < 0)
+            || (transform.position.y > GameManager.Instance.GameField.MaxY - _radius && _direction.y > 0))
         {
             _direction.y = -_direction.y;
         }
-        
-        if (transform.position.x < GameManager.GameField.MinX 
-            || transform.position.x > GameManager.GameField.MaxX)
+
+        if (transform.position.x < GameManager.Instance.GameField.MinX
+            || transform.position.x > GameManager.Instance.GameField.MaxX)
         {
-            GameManager.Restart();
+            GameManager.Instance.LoadMainMenu();
         }
     }
 
@@ -48,9 +48,8 @@ public class Ball : MonoBehaviour
             {
                 _direction.x = -_direction.x;
 
-                GameManager.Score++;
+                GameManager.Instance.Score++;
             }
-            
         }
     }
 }

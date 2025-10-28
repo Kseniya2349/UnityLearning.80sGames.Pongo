@@ -1,17 +1,26 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class GameManager
+public class GameManager
 {
-        public static int Score = 0;
-
-        
-        public static readonly GameField GameField =
-            new GameField(new Vector2(-8.88f, -5), new Vector2(8.88f, 5));
-
-        public static void Restart()
+    private static GameManager _instance;
+    public static GameManager Instance
+    {
+        get
         {
-            Score = 0;
-            SceneManager.LoadScene(0);
+            _instance ??= new GameManager();
+            return _instance;
         }
+    }
+
+    public int Score = 0;
+
+    public readonly GameField GameField =
+        new GameField(new Vector2(-8.88f, -5), new Vector2(8.88f, 5));
+
+    public void LoadMainMenu()
+    {
+        Score = 0;
+        SceneManager.LoadScene(0);
+    }
 }
