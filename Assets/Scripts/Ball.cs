@@ -34,7 +34,7 @@ public class Ball : MonoBehaviour
         if (transform.position.x < GameManager.Instance.GameField.MinX
             || transform.position.x > GameManager.Instance.GameField.MaxX)
         {
-            GameManager.Instance.LoadMainMenu();
+            GameManager.Instance.ReloadGame();
         }
     }
 

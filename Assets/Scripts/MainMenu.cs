@@ -3,20 +3,38 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private UIInputActions _uiInputActions;
+    
+    private void Awake()
     {
-        
+        _uiInputActions = new UIInputActions();
+    }
+    
+    private void OnEnable()
+    {
+        _uiInputActions.Enable();
     }
 
-    // Update is called once per frame
+    private void OnDisable()
+    {
+        _uiInputActions.Disable();
+    }
+
     void Update()
     {
-        
+        if (_uiInputActions.UI.Cancel.triggered)
+        {
+            GameManager.Instance.LoadMainMenu();
+        } 
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        GameManager.Instance.LoadGame();
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

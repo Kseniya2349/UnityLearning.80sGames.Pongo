@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 443387930}
   - component: {fileID: 443387929}
   - component: {fileID: 443387928}
+  - component: {fileID: 443387932}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -210,7 +211,7 @@ RectTransform:
   m_GameObject: {fileID: 443387927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.016425988, y: 0.013404807, z: 1}
+  m_LocalScale: {x: 0.017371638, y: 0.017024366, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 459264671}
@@ -218,9 +219,21 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.34, y: -0.89}
+  m_AnchoredPosition: {x: 0, y: 0.01}
   m_SizeDelta: {x: 970, y: 546}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &443387932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443387927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09bd72d6279f8fa419b2a4f4b161b0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenu
 --- !u!1 &459264670
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bae5ab5f1321e49bf81ee57b33173b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ball
-  speed: 5
+  initialSpeed: 5
+  speedBoostScore: 5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +794,6 @@ GameObject:
   m_Component:
   - component: {fileID: 995022848}
   - component: {fileID: 995022847}
-  - component: {fileID: 995022849}
   - component: {fileID: 995022850}
   - component: {fileID: 995022851}
   m_Layer: 0
@@ -863,19 +876,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &995022849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995022846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bad81affc4706141a10344e87b7238d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  isRight: 0
 --- !u!114 &995022850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,7 +946,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1591470268}
   - component: {fileID: 1591470267}
-  - component: {fileID: 1591470269}
   - component: {fileID: 1591470270}
   - component: {fileID: 1591470271}
   m_Layer: 0
@@ -1029,19 +1028,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1591470269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591470266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bad81affc4706141a10344e87b7238d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  isRight: 1
 --- !u!114 &1591470270
 MonoBehaviour:
   m_ObjectHideFlags: 0
