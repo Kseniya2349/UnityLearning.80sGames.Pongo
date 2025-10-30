@@ -16,6 +16,6 @@ public class ScoreLabel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _labelComponent.text = "Score: " + GameManager.Instance.Score;
+        _labelComponent.text = "Score: " + GameManager.Instance.GetScore();
     }
 }

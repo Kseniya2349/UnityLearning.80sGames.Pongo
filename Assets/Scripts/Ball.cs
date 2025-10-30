@@ -21,7 +21,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var speed = (float)Math.Floor(GameManager.Instance.Score / (double)speedBoostScore) + initialSpeed;
+        var speed = (float)Math.Floor(GameManager.Instance.GetScore() / (double)speedBoostScore) + initialSpeed;
 
         transform.Translate(_direction * speed * Time.deltaTime);
 
@@ -48,7 +48,7 @@ public class Ball : MonoBehaviour
             {
                 _direction.x = -_direction.x;
 
-                GameManager.Instance.Score++;
+                GameManager.Instance.IncreaseScore();
             }
         }
     }

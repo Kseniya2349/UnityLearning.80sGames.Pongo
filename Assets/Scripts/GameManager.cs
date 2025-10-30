@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager
 {
     private static GameManager _instance;
+    
     public static GameManager Instance
     {
         get
@@ -13,23 +14,39 @@ public class GameManager
         }
     }
 
-    public int Score = 0;
+    private readonly HighScoresHandler _highScoresHandler = new ();
+    private int _score;
+
+    public int GetScore()
+    {
+        return _score;
+    }
+    
+    public void IncreaseScore()
+    {
+        _score++;
+    }
 
     public readonly GameField GameField =
-        new GameField(new Vector2(-8.88f, -5), new Vector2(8.88f, 5));
+        new (new Vector2(-8.88f, -5), new Vector2(8.88f, 5));
 
     private GameManager()
     {
         if (PlayerPrefs.HasKey("Score"))
         {
-            Score = PlayerPrefs.GetInt("Score");
+            _score = PlayerPrefs.GetInt("Score");
         }
     }
     
     public void LoadMainMenu()
     {
-        PlayerPrefs.SetInt("Score", Score);
+        PlayerPrefs.SetInt("Score", _score);
         SceneManager.LoadScene(0);
+
+        if (_score > 0)
+        {
+            _highScoresHandler.UpdateHighScores(_score);
+        }
     }
     
     public void LoadGame()
@@ -39,7 +56,12 @@ public class GameManager
     
     public void ReloadGame()
     {
-        Score = 0;
+        _score = 0;
         LoadMainMenu();
+    }
+
+    public int[] GetHighScores()
+    {
+        return _highScoresHandler.HighScores;
     }
 }

@@ -1,11 +1,13 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System;
 
 public class MainMenu : MonoBehaviour
 {
     private UIInputActions _uiInputActions;
     
-    [SerializeField] GameObject _highScorePanel;
+    [SerializeField] GameObject highScorePanel;
+    [SerializeField] TextMeshProUGUI highScoreTable;
     
     private void Awake()
     {
@@ -42,11 +44,12 @@ public class MainMenu : MonoBehaviour
 
     public void ShowHighScorePanel()
     {
-        _highScorePanel.SetActive(true);
+        highScorePanel.SetActive(true);
+        highScoreTable.text = string.Join(Environment.NewLine, GameManager.Instance.GetHighScores());
     }
     
     public void CloseHighScorePanel()
     {
-        _highScorePanel.SetActive(false);
+        highScorePanel.SetActive(false);
     }
 }
