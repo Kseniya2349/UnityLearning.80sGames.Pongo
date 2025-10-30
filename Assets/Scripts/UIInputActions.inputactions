@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "UIInputActions",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "9dd64765-7f49-49d3-a532-85596caf90f6",
+            "actions": [
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "f3bac427-86fd-4bfb-b402-6a4bfb310b96",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b6c2da43-f487-4162-9ff8-6537af80bd90",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
